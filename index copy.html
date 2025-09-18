@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela rang i wypłat z zakładkami</title>
+    <!-- Import Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Dodatkowe style dla czcionki i przejść */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        /* Styl dla płynnego przejścia przy pokazywaniu/ukrywaniu zakładek */
+        .tab-content {
+            transition: opacity 0.3s ease-in-out;
+        }
+        /* Style dla dymków (tooltip) */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: max-content;
+            background-color: #374151; /* gray-700 */
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 12px;
+            position: absolute;
+            z-index: 10;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #374151 transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <!-- Header -->
+            <div class="p-6 border-b border-gray-200">
+                <h1 class="text-xl font-semibold text-gray-800">Tabela rang i wypłat</h1>
+                <p class="text-sm text-gray-500 mt-1">Przegląd uprawnień do pul bonusowych według rang</p>
+            </div>
+
+            <!-- Combined Table Section -->
+            <div class="p-6">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ranga</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pula wzmocnienia</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pula liderów</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pula wydajności</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pula Diamond/Blue/Presidential</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <!-- Premier -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Premier</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <div class="tooltip">
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                            <span>(1 udział)</span>
+                                        </div>
+                                        <span class="tooltiptext">1 x 890zł = 890zł</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                            </tr>
+                            <!-- Silver -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Silver</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                     <div class="tooltip">
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                            <span>(1 udział)</span>
+                                        </div>
+                                        <span class="tooltiptext">1 x 890zł = 890zł</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    <div class="tooltip">
+                                        <div class="flex items-start">
+                                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                            <div>
+                                                (1 udział)
+                                                <div class="text-xs text-purple-600 mt-1">+ 1× nowy Elite</div>
+                                            </div>
+                                        </div>
+                                        <span class="tooltiptext">1 x 550zł = 550zł</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                            </tr>
+                             <!-- Gold -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Gold</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <div class="tooltip">
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                            <span>(2 udziały)</span>
+                                        </div>
+                                        <span class="tooltiptext">2 x 890zł = 1780zł</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    <div class="tooltip">
+                                        <div class="flex items-start">
+                                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                            <div>
+                                                (5 udziałów)
+                                                <div class="text-xs text-purple-600 mt-1">+ 1× nowy Elite</div>
+                                            </div>
+                                        </div>
+                                        <span class="tooltiptext">5 x 550zł = 2750zł</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                            </tr>
+                            <!-- Platinum -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Platinum</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                     <div class="tooltip">
+                                        <div class="flex items-start">
+                                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                            <div>
+                                                (10 udziałów)
+                                                <div class="text-xs text-purple-600 mt-1">+ 1× nowy Elite</div>
+                                            </div>
+                                        </div>
+                                        <span class="tooltiptext">10 x 550zł = 5500zł</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    <div class="tooltip">
+                                        <div class="flex items-start">
+                                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                            <div>(1–3 udziały, 4000 PV)</div>
+                                        </div>
+                                        <span class="tooltiptext">1-3 x 1245zł = 1245-3735zł</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                            </tr>
+                            <!-- Diamond -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Diamond</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    <div class="tooltip">
+                                        <div class="flex items-start">
+                                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                            <div>
+                                                (3–4 udziały, 6000 PV)
+                                                <div class="text-xs text-purple-600 mt-1">+ 2× nowy Premier</div>
+                                            </div>
+                                        </div>
+                                        <span class="tooltiptext">3-4 x 1245zł = 3735-4980zł</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    <div class="tooltip">
+                                        <div class="flex items-start">
+                                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                            <div>
+                                                (2–4 udziały, 6000 PV)
+                                                <div class="text-xs text-purple-600 mt-1">+ 1× nowy Premier</div>
+                                            </div>
+                                        </div>
+                                        <span class="tooltiptext">2-4 x 2300zł = 4600-9200zł</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Blue Diamond -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Blue Diamond</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    <div class="tooltip">
+                                        <div class="flex items-start">
+                                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                            <div>
+                                                (3–6 udziały, 12000 PV)
+                                                <div class="text-xs text-purple-600 mt-1">+ 2× nowy Premier</div>
+                                            </div>
+                                        </div>
+                                        <span class="tooltiptext">3-6 x 1245zł = 3735-7470zł</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    <div class="flex items-start">
+                                        <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <div>
+                                            (2–4 udziały, 12000 PV)
+                                            <div class="text-xs text-purple-600 mt-1">+ 1× nowy Premier</div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Presidential Diamond -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Presidential Diamond</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    <div class="tooltip">
+                                        <div class="flex items-start">
+                                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                            <div>
+                                                (3–8 udziały, 18000 PV)
+                                                <div class="text-xs text-purple-600 mt-1">+ 2× nowy Premier</div>
+                                            </div>
+                                        </div>
+                                        <span class="tooltiptext">3-8 x 1245zł = 3735-9960zł</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    <div class="flex items-start">
+                                        <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <div>
+                                            (2–4 udziały, 18000 PV)
+                                            <div class="text-xs text-purple-600 mt-1">+ 1× nowy Silver</div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <div class="px-6 border-b border-gray-200">
+                 <h2 class="text-lg font-semibold text-gray-800 mb-2 mt-4">Szczegóły według rangi</h2>
+                <nav class="-mb-px flex space-x-6 overflow-x-auto" aria-label="Tabs">
+                    <button class="tab-btn active-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-indigo-500 text-indigo-600" data-tab="premier">Premier</button>
+                    <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="silver">Silver</button>
+                    <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="gold">Gold</button>
+                    <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="platinum">Platinum</button>
+                    <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="diamond">Diamond</button>
+                    <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="blue-diamond">Blue Diamond</button>
+                    <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="presidential-diamond">Presidential Diamond</button>
+                    <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="doterra-pools">Pule dōTERRA</button>
+                    <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="moc-trzech">Moc Trzech</button>
+                </nav>
+            </div>
+
+            <!-- Tabs Content -->
+            <div class="p-6">
+                <!-- Premier Tab -->
+                <div id="premier" class="tab-content">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">Bonus</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kwota</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Fast Start</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Unilevel</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3 Bonus</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Empowerment Pool</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 tooltip">
+                                    (1 udział)
+                                    <span class="tooltiptext">1 x 890zł = 890zł</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase">SUMA</td>
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700">$...</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Silver Tab -->
+                <div id="silver" class="tab-content hidden">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">Bonus</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kwota</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Fast Start</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Unilevel</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3 Bonus</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Empowerment Pool</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 tooltip">
+                                    (1 udział)
+                                    <span class="tooltiptext">1 x 890zł = 890zł</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Leadership Pool</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 tooltip">
+                                    (1 udział)<div class="text-xs text-purple-600 mt-1">+ 1× nowy Elite</div>
+                                    <span class="tooltiptext">1 x 550zł = 550zł</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase">SUMA</td>
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700">$...</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                
+                <!-- Gold Tab -->
+                <div id="gold" class="tab-content hidden">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">Bonus</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kwota</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Fast Start</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Unilevel</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3 Bonus</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Empowerment Pool</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 tooltip">
+                                    (2 udziały)
+                                    <span class="tooltiptext">2 x 890zł = 1780zł</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Leadership Pool</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 tooltip">
+                                    (5 udziałów)<div class="text-xs text-purple-600 mt-1">+ 1× nowy Elite</div>
+                                    <span class="tooltiptext">5 x 550zł = 2750zł</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase">SUMA</td>
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700">$...</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Platinum Tab -->
+                <div id="platinum" class="tab-content hidden">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">Bonus</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kwota</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Fast Start</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Unilevel</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3 Bonus</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Leadership Pool</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 tooltip">
+                                    (10 udziałów)<div class="text-xs text-purple-600 mt-1">+ 1× nowy Elite</div>
+                                    <span class="tooltiptext">10 x 550zł = 5500zł</span>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Performance Pool</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 tooltip">
+                                    (1–3 udziały, 4000 PV)
+                                    <span class="tooltiptext">1-3 x 1245zł = 1245-3735zł</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                         <tfoot>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase">SUMA</td>
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700">$...</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Diamond Tab -->
+                <div id="diamond" class="tab-content hidden">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">Bonus</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kwota</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Fast Start</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Unilevel</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3 Bonus</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Performance Pool</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 tooltip">
+                                    (3–4 udziały, 6000 PV)<div class="text-xs text-purple-600 mt-1">+ 2× nowy Premier</div>
+                                    <span class="tooltiptext">3-4 x 1245zł = 3735-4980zł</span>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Diamond Pool</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 tooltip">
+                                    (2–4 udziały, 6000 PV)<div class="text-xs text-purple-600 mt-1">+ 1× nowy Premier</div>
+                                    <span class="tooltiptext">2-4 x 2300zł = 4600-9200zł</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase">SUMA</td>
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700">$...</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                
+                <!-- Blue Diamond Tab -->
+                <div id="blue-diamond" class="tab-content hidden">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">Bonus</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kwota</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Fast Start</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Unilevel</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3 Bonus</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Performance Pool</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 tooltip">
+                                    (3–6 udziały, 12000 PV)<div class="text-xs text-purple-600 mt-1">+ 2× nowy Premier</div>
+                                    <span class="tooltiptext">3-6 x 1245zł = 3735-7470zł</span>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Diamond Pool</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    (2–4 udziały, 12000 PV)<div class="text-xs text-purple-600 mt-1">+ 1× nowy Premier</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase">SUMA</td>
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700">$...</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Presidential Diamond Tab -->
+                <div id="presidential-diamond" class="tab-content hidden">
+                     <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">Bonus</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kwota</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Fast Start</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Unilevel</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Power of 3 Bonus</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">$...</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Performance Pool</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 tooltip">
+                                    (3–8 udziały, 18000 PV)<div class="text-xs text-purple-600 mt-1">+ 2× nowy Premier</div>
+                                    <span class="tooltiptext">3-8 x 1245zł = 3735-9960zł</span>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Diamond Pool</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    (2–4 udziały, 18000 PV)<div class="text-xs text-purple-600 mt-1">+ 1× nowy Silver</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase">SUMA</td>
+                                <td class="px-6 py-3 text-left text-sm font-bold text-gray-700">$...</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- dōTERRA Pools Tab -->
+                <div id="doterra-pools" class="tab-content hidden">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pula / Ranga</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">za nowego osobiście zarejestrowanego Elite</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">za nowego osobiście zarejestrowanego Premier</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">za nowego osobiście zarejestrowanego Silver</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Silver/Gold/Platinum</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 tooltip">
+                                    1 dodatkowy udział puli liderów
+                                    <span class="tooltiptext">1 x 550zł = 550zł</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 text-sm text-gray-400 font-semibold">—</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Platinum/Diamond/Blue/Presidential</td>
+                                <td class="px-6 py-4 text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 tooltip">
+                                    2 dodatkowe udziały puli wydajności
+                                    <span class="tooltiptext">2 x 1245zł = 2490zł</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-400 font-semibold">—</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Diamond</td>
+                                <td class="px-6 py-4 text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 tooltip">
+                                    1 dodatkowy udział puli Diamond
+                                    <span class="tooltiptext">1 x 2300zł = 2300zł</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-400 font-semibold">—</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Blue Diamond</td>
+                                <td class="px-6 py-4 text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">1 dodatkowy udział puli Blue Diamond</td>
+                                <td class="px-6 py-4 text-sm text-gray-400 font-semibold">—</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Pula Presidential Diamond</td>
+                                <td class="px-6 py-4 text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 text-sm text-gray-400 font-semibold">—</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">1 dodatkowy udział puli Presidential Diamond</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Moc Trzech Tab -->
+                <div id="moc-trzech" class="tab-content hidden">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Bonus "Moc Trzech"</h3>
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Poziom</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Premia Podstawowa</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Premia z Doładowaniem (PGV ≥ 400)</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Premia z Doładowaniem (PGV ≥ 800)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <!-- Poziom 1 -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Poziom 1</td>
+                                <td class="px-6 py-4 text-sm text-gray-700 font-semibold">185 zł</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">
+                                    <span class="font-semibold">370 zł</span>
+                                    <span class="text-xs text-green-600 ml-1">(+185 zł)</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-700">
+                                    <span class="font-semibold">370 zł</span>
+                                    <span class="text-xs text-green-600 ml-1">(+185 zł)</span>
+                                </td>
+                            </tr>
+                            <!-- Poziom 2 -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Poziom 2</td>
+                                <td class="px-6 py-4 text-sm text-gray-700 font-semibold">930 zł</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">
+                                    <span class="font-semibold">1115 zł</span>
+                                    <span class="text-xs text-green-600 ml-1">(+185 zł)</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-700">
+                                    <span class="font-semibold">1860 zł</span>
+                                    <span class="text-xs text-green-600 ml-1">(+930 zł)</span>
+                                </td>
+                            </tr>
+                            <!-- Poziom 3 -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Poziom 3</td>
+                                <td class="px-6 py-4 text-sm text-gray-700 font-semibold">4675 zł</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">
+                                    <span class="font-semibold">4860 zł</span>
+                                    <span class="text-xs text-green-600 ml-1">(+185 zł)</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-700">
+                                    <span class="font-semibold">5605 zł</span>
+                                    <span class="text-xs text-green-600 ml-1">(+930 zł)</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active styles from all buttons
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active-tab', 'border-indigo-500', 'text-indigo-600');
+                    btn.classList.add('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                });
+
+                // Hide all content
+                tabContents.forEach(content => {
+                    content.classList.add('hidden', 'opacity-0');
+                });
+
+                // Add active styles to clicked button
+                button.classList.add('active-tab', 'border-indigo-500', 'text-indigo-600');
+                button.classList.remove('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                
+                // Show content related to the clicked button
+                const tabId = button.dataset.tab;
+                const activeContent = document.getElementById(tabId);
+                activeContent.classList.remove('hidden');
+                // Use a short timeout to allow the display property to change before starting the opacity transition
+                setTimeout(() => {
+                    activeContent.classList.remove('opacity-0');
+                }, 10);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
