@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabela Rang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa; /* Jasne tło strony */
+    color: #495057;
+    margin: 0;
+    padding: 20px; /* Delikatne marginesy po bokach */
+    box-sizing: border-box;
+  }
+  .table-wrapper {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e9ecef; /* Delikatne obramowanie */
+    border-radius: 8px; /* Zaokrąglone rogi */
+    overflow: hidden; /* Ukrycie wystających elementów tabeli */
+  }
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    color: #333;
+    font-size: 24px; /* Zwiększona czcionka bazowa */
+    font-weight: 500;
+  }
+  .custom-table th, .custom-table td {
+    padding: 28px 20px; /* Zwiększony padding */
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: top;
+  }
+  .custom-table thead th {
+    background-color: #f3f4f6;
+    color: #374151;
+    font-weight: 700;
+    font-size: 26px; /* Zmieniona czcionka nagłówka */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e9ecef;
+  }
+  .custom-table tbody th {
+      font-weight: 700;
+      color: #212529;
+      font-size: 28px; /* Zmieniona czcionka rangi */
+      text-transform: uppercase; /* Zapewnia wielkie litery */
+      vertical-align: middle;
+  }
+  .custom-table thead th:first-child {
+      vertical-align: middle;
+  }
+  .custom-table tbody tr:last-child th,
+  .custom-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .check-icon {
+    width: 28px; /* Zwiększony rozmiar ikony */
+    height: 28px; /* Zwiększony rozmiar ikony */
+    stroke: #28a745;
+    stroke-width: 2.5;
+    margin-right: 12px;
+    vertical-align: middle;
+  }
+  .details {
+      display: block;
+      font-size: 20px; /* Zwiększona czcionka szczegółów */
+      color: #6c757d;
+      margin-top: 8px;
+      margin-left: 40px; /* Wyrównanie z głównym wpisem */
+  }
+  .highlight-purple {
+      color: #8A2BE2;
+      font-weight: 500;
+  }
+  .em-dash {
+      color: #adb5bd;
+  }
+</style>
+</head>
+<body>
+
+    <div class="table-wrapper">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>RANGA</th>
+            <th>PULA<br>WZMOCNIENIA</th>
+            <th>PULA<br>LIDERÓW</th>
+            <th>PULA<br>WYDAJNOŚCI</th>
+            <th>PULA<br>DIAMOND/BLUE/PRESIDENTIAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Premier</th>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                1 udział
+                <span class="details">Osobista rejestracja<br>na każdy udział</span>
+            </td>
+            <td><span class="em-dash">—</span></td>
+            <td><span class="em-dash">—</span></td>
+            <td><span class="em-dash">—</span></td>
+          </tr>
+          <tr>
+            <th>Silver</th>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                1 udział
+                 <span class="details">Osobista rejestracja<br>na każdy udział</span>
+            </td>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                1 udział
+                <span class="details"><span class="highlight-purple">+1 za każdy nowy Elite<br>osobiście zarejestrowany</span></span>
+            </td>
+            <td><span class="em-dash">—</span></td>
+            <td><span class="em-dash">—</span></td>
+          </tr>
+          <tr>
+            <th>Gold</th>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                2 udziały
+                 <span class="details">Osobista rejestracja<br>na każdy udział</span>
+            </td>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                5 udziałów
+                <span class="details"><span class="highlight-purple">+1 za każdy nowy Elite<br>osobiście zarejestrowany</span></span>
+            </td>
+            <td><span class="em-dash">—</span></td>
+            <td><span class="em-dash">—</span></td>
+          </tr>
+          <tr>
+            <th>Platinum</th>
+            <td><span class="em-dash">—</span></td>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                10 udziałów
+                <span class="details"><span class="highlight-purple">+1 za każdy nowy Elite<br>osobiście zarejestrowany</span></span>
+            </td>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                1 udział
+                <span class="details"><span class="highlight-purple">+2 jeżeli TGV ≥ 4000</span></span>
+                <span class="details"><span class="highlight-purple">+2 za każdy nowy Premier<br>osobiście zarejestrowany</span></span>
+            </td>
+            <td><span class="em-dash">—</span></td>
+          </tr>
+          <tr>
+            <th>Diamond</th>
+            <td><span class="em-dash">—</span></td>
+            <td><span class="em-dash">—</span></td>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                3 udziały
+                <span class="details"><span class="highlight-purple">+1 jeżeli TGV ≥ 6000</span></span>
+                <span class="details"><span class="highlight-purple">+2 za każdy nowy Premier<br>osobiście zarejestrowany</span></span>
+            </td>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                2 udziały
+                <span class="details"><span class="highlight-purple">+2 jeżeli TGV ≥ 6000</span></span>
+                <span class="details"><span class="highlight-purple">+1 za każdy nowy Premier<br>osobiście zarejestrowany</span></span>
+            </td>
+          </tr>
+          <tr>
+            <th>Blue<br>Diamond</th>
+            <td><span class="em-dash">—</span></td>
+            <td><span class="em-dash">—</span></td>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                3 udziały
+                <span class="details"><span class="highlight-purple">+3 jeżeli TGV ≥ 12000</span></span>
+                <span class="details"><span class="highlight-purple">+2 za każdy nowy Premier<br>osobiście zarejestrowany</span></span>
+            </td>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                2 udziały
+                <span class="details"><span class="highlight-purple">+2 jeżeli TGV ≥ 12000</span></span>
+                <span class="details"><span class="highlight-purple">+1 za każdy nowy Premier<br>osobiście zarejestrowany</span></span>
+            </td>
+          </tr>
+          <tr>
+            <th>Presidential<br>Diamond</th>
+            <td><span class="em-dash">—</span></td>
+            <td><span class="em-dash">—</span></td>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                3 udziały
+                <span class="details"><span class="highlight-purple">+5 jeżeli TGV ≥ 18000</span></span>
+                <span class="details"><span class="highlight-purple">+2 za każdy nowy Premier<br>osobiście zarejestrowany</span></span>
+            </td>
+            <td>
+                <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                2 udziały
+                <span class="details"><span class="highlight-purple">+2 jeżeli TGV ≥ 18000</span></span>
+                <span class="details"><span class="highlight-purple">+1 za każdy nowy Silver<br>osobiście zarejestrowany</span></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+</body>
+</html>
+

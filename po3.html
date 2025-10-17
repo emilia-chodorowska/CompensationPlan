@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabela Premii</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    color: #495057;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .table-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    aspect-ratio: 2.14 / 1;
+    /* border: 1px solid #ccc; Usunięte obramowanie */
+  }
+  .custom-table {
+    width: 100%;
+    height: 100%; /* Tabela wypełnia kontener */
+    border-collapse: collapse;
+    text-align: left;
+    color: #333;
+    font-size: 32px; /* Maksymalnie zwiększona czcionka bazowa */
+    font-weight: 500;
+    table-layout: fixed;
+    word-break: break-word;
+  }
+  .custom-table th, .custom-table td {
+    padding: 15px 10px; /* Zmniejszone odstępy */
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle; /* Wyrównanie w pionie */
+  }
+  .custom-table th {
+    background-color: #f3f4f6; /* Zmieniony kolor tła */
+    color: #374151; /* Grafitowy kolor tekstu */
+    font-weight: 700;
+    font-size: 30px; /* Maksymalnie zwiększona czcionka nagłówka */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .custom-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .custom-table .highlight-strong {
+    font-weight: 700;
+    font-size: 34px; /* Maksymalnie zwiększona czcionka wyróżnienia */
+    color: #212529;
+  }
+  .custom-table .highlight-green {
+    color: #28a745;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+    <div class="table-container">
+      <table class="custom-table">
+        <colgroup>
+          <col style="width: 18%;">
+          <col style="width: 22%;">
+          <col style="width: 30%;">
+          <col style="width: 30%;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>POZIOM</th>
+            <th>PODSTAWA</th>
+            <th>BOOST<br>(PGV 400+)</th>
+            <th>BOOST<br>(PGV 800+)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Poziom 1</td>
+            <td class="highlight-strong">185 zł</td>
+            <td><span class="highlight-strong">370 zł</span> <span class="highlight-green">(+185 zł)</span></td>
+            <td><span class="highlight-strong">370 zł</span> <span class="highlight-green">(+185 zł)</span></td>
+          </tr>
+          <tr>
+            <td>Poziom 2</td>
+            <td class="highlight-strong">930 zł</td>
+            <td><span class="highlight-strong">1115 zł</span> <span class="highlight-green">(+185 zł)</span></td>
+            <td><span class="highlight-strong">1860 zł</span> <span class="highlight-green">(+930 zł)</span></td>
+          </tr>
+          <tr>
+            <td>Poziom 3</td>
+            <td class="highlight-strong">4675 zł</td>
+            <td><span class="highlight-strong">4860 zł</span> <span class="highlight-green">(+185 zł)</span></td>
+            <td><span class="highlight-strong">5605 zł</span> <span class="highlight-green">(+930 zł)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+</body>
+</html>
+

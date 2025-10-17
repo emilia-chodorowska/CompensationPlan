@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Rang i Wypłat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Prosta animacja dla lepszego efektu wizualnego */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 fade-in">
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Tabela rang i wypłat</h1>
+            <p class="text-gray-500 mt-2">Przegląd puli i warunków ich przyznawania.</p>
+        </header>
+
+        <!-- Kontener dla tabeli z cieniem i zaokrąglonymi rogami -->
+        <div class="bg-white shadow-2xl rounded-xl overflow-hidden">
+            <!-- Wrapper dla responsywności -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-700">
+                    <thead class="text-xs text-white uppercase bg-gray-700">
+                        <tr>
+                            <th scope="col" class="px-6 py-4">Ranga</th>
+                            <th scope="col" class="px-6 py-4">Pula Wzmocnienia</th>
+                            <th scope="col" class="px-6 py-4">Pula Liderów</th>
+                            <th scope="col" class="px-6 py-4">Pula Wydajności</th>
+                            <th scope="col" class="px-6 py-4">Pula Diamond/Blue/Presidential</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Premier -->
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <th scope="row" class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap">
+                                Premier
+                            </th>
+                            <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 1 udział<br>
+                                <span class="text-xs text-gray-500">Osobista rejestracja na każdy udział</span>
+                            </td>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                        </tr>
+                        <!-- Silver -->
+                        <tr class="bg-gray-50 border-b hover:bg-gray-100">
+                            <th scope="row" class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap">
+                                Silver
+                            </th>
+                            <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 1 udział<br>
+                                <span class="text-xs text-gray-500">Osobista rejestracja na każdy udział</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 1 udział<br>
+                                <span class="text-xs text-gray-500">+1 za każdy nowy Elite<br>osobiście zarejestrowany</span>
+                            </td>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                        </tr>
+                        <!-- Gold -->
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <th scope="row" class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap">
+                                Gold
+                            </th>
+                            <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 2 udziały<br>
+                                <span class="text-xs text-gray-500">Osobista rejestracja na każdy udział</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 5 udziałów<br>
+                                <span class="text-xs text-gray-500">+1 za każdy nowy Elite<br>osobiście zarejestrowany</span>
+                            </td>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                        </tr>
+                        <!-- Platinum -->
+                        <tr class="bg-gray-50 border-b hover:bg-gray-100">
+                            <th scope="row" class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap">
+                                Platinum
+                            </th>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                            <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 10 udziałów<br>
+                                <span class="text-xs text-gray-500">+1 za każdy nowy Elite<br>osobiście zarejestrowany</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 1 udział<br>
+                                <span class="text-xs text-gray-500">+1 jeżeli TGV ≥ 4000<br>+2 za każdy nowy Premier<br>osobiście zarejestrowany</span>
+                            </td>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                        </tr>
+                        <!-- Diamond -->
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <th scope="row" class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap">
+                                Diamond
+                            </th>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                             <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 3 udziały<br>
+                                <span class="text-xs text-gray-500">+1 jeżeli TGV ≥ 6000<br>+2 za każdy nowy Premier<br>osobiście zarejestrowany</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 2 udziały<br>
+                                <span class="text-xs text-gray-500">+2 jeżeli TGV ≥ 6000<br>+1 za każdy nowy Premier<br>osobiście zarejestrowany</span>
+                            </td>
+                        </tr>
+                        <!-- Blue Diamond -->
+                        <tr class="bg-gray-50 border-b hover:bg-gray-100">
+                            <th scope="row" class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap">
+                                Blue Diamond
+                            </th>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                            <td class="px-6 py-4 text-gray-400">—</td>
+                            <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 3 udziały<br>
+                                <span class="text-xs text-gray-500">+1 jeżeli TGV ≥ 12000<br>+2 za każdy nowy Premier<br>osobiście zarejestrowany</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 2 udziały<br>
+                                <span class="text-xs text-gray-500">+2 jeżeli TGV ≥ 12000<br>+1 za każdy nowy Premier<br>osobiście zarejestrowany</span>
+                            </td>
+                        </tr>
+                        <!-- Presidential Diamond -->
+                        <tr class="bg-white hover:bg-gray-50">
+                            <th scope="row" class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap">
+                                Presidential Diamond
+                            </th>
+                           <td class="px-6 py-4 text-gray-400">—</td>
+                           <td class="px-6 py-4 text-gray-400">—</td>
+                           <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 3 udziały<br>
+                                <span class="text-xs text-gray-500">+1 jeżeli TGV ≥ 18000<br>+2 za każdy nowy Premier<br>osobiście zarejestrowany</span>
+                            </td>
+                           <td class="px-6 py-4">
+                                <span class="text-green-500 font-bold text-lg">✓</span> 2 udziały<br>
+                                <span class="text-xs text-gray-500">+2 jeżeli TGV ≥ 18000<br>+1 za każdy nowy Silver<br>osobiście zarejestrowany</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
