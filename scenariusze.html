@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scenariusze Rozwoju - Droga do Sukcesu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-btn.active { border-color: #6366f1; color: #6366f1; background-color: #eef2ff; }
+        .scenario-content { display: none; }
+        .scenario-content.active { display: block; }
+        .rank-executive { background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); }
+        .rank-elite { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); }
+        .rank-premier { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
+        .rank-silver { background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%); }
+        .rank-gold { background: linear-gradient(135deg, #fef3c7 0%, #f59e0b 100%); }
+        .rank-director { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); }
+        .highlight-row { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+            50% { box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <!-- Nawigacja -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <a href="index.html" class="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Powrot do menu
+            </a>
+            <h1 class="text-lg font-semibold text-gray-800">Scenariusze Rozwoju</h1>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3">Droga do Sukcesu</h1>
+            <p class="text-gray-500 text-lg">Porownaj dwa scenariusze rozwoju i wybierz swoja sciezke</p>
+        </header>
+
+        <!-- Zalozenia wspolne -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Zalozenia wspolne
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="text-sm text-gray-500 mb-1">Rejestracja na HE</div>
+                    <div class="font-semibold text-gray-800">259,5 PV</div>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="text-sm text-gray-500 mb-1">Fast Start za HE</div>
+                    <div class="font-semibold text-gray-800">189,78 zl</div>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="text-sm text-gray-500 mb-1">Twoje zamowienie</div>
+                    <div class="font-semibold text-gray-800">125 PV / miesiac</div>
+                </div>
+                <div class="bg-indigo-50 rounded-lg p-4">
+                    <div class="text-sm text-indigo-600 mb-1">PM3 Poziom 1</div>
+                    <div class="font-semibold text-gray-800">185 zl <span class="text-green-600">/ 375 zl z boostem</span></div>
+                </div>
+                <div class="bg-indigo-50 rounded-lg p-4">
+                    <div class="text-sm text-indigo-600 mb-1">PM3 Poziom 2</div>
+                    <div class="font-semibold text-gray-800">930 zl <span class="text-green-600">/ 1 860 zl z boostem</span></div>
+                </div>
+                <div class="bg-indigo-50 rounded-lg p-4">
+                    <div class="text-sm text-indigo-600 mb-1">PM3 Poziom 3</div>
+                    <div class="font-semibold text-gray-800"><span class="text-green-600">5 605 zl z boostem</span></div>
+                </div>
+                <div class="bg-amber-50 rounded-lg p-4">
+                    <div class="text-sm text-amber-600 mb-1">Premia za Premiera</div>
+                    <div class="font-semibold text-gray-800">880 zl</div>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-4">
+                    <div class="text-sm text-gray-600 mb-1">Premia za Silvera</div>
+                    <div class="font-semibold text-gray-800">1 320 zl <span class="text-gray-500">(3x 440 zl)</span></div>
+                </div>
+                <div class="bg-yellow-50 rounded-lg p-4">
+                    <div class="text-sm text-yellow-700 mb-1">Premia za Golda</div>
+                    <div class="font-semibold text-gray-800">3 960 zl</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex flex-col sm:flex-row gap-3 mb-6">
+            <button class="tab-btn active flex-1 py-4 px-6 rounded-xl border-2 border-gray-200 font-semibold text-gray-600 transition-all hover:border-indigo-300" data-scenario="intensive">
+                <div class="text-lg">Scenariusz Intensywny</div>
+                <div class="text-sm font-normal mt-1">10 rejestracji / miesiac</div>
+            </button>
+            <button class="tab-btn flex-1 py-4 px-6 rounded-xl border-2 border-gray-200 font-semibold text-gray-600 transition-all hover:border-indigo-300" data-scenario="moderate">
+                <div class="text-lg">Scenariusz Umiarkowany</div>
+                <div class="text-sm font-normal mt-1">5 rejestracji / miesiac</div>
+            </button>
+        </div>
+
+        <!-- Scenariusz Intensywny -->
+        <div id="intensive" class="scenario-content active">
+
+            <!-- Zalozenia scenariusza -->
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-6 text-white mb-6">
+                <h3 class="text-xl font-bold mb-3">Scenariusz Intensywny - Zalozenia</h3>
+                <ul class="space-y-2 text-indigo-100">
+                    <li class="flex items-start"><svg class="w-5 h-5 mr-2 mt-0.5 text-indigo-200" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>10 rejestracji co miesiac - 2 do pracy, 8 klientow</li>
+                    <li class="flex items-start"><svg class="w-5 h-5 mr-2 mt-0.5 text-indigo-200" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Osoby budujace robia 2 rejestracje w kolejnych miesiacach</li>
+                    <li class="flex items-start"><svg class="w-5 h-5 mr-2 mt-0.5 text-indigo-200" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>1 klient wchodzi na LRP 125 PV co miesiac</li>
+                    <li class="flex items-start"><svg class="w-5 h-5 mr-2 mt-0.5 text-indigo-200" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Ty robisz zamowienie na 125 PV w kazdym miesiacu</li>
+                </ul>
+                <div class="mt-4 pt-4 border-t border-indigo-400 flex flex-wrap gap-4">
+                    <div class="bg-white/20 rounded-lg px-4 py-2">
+                        <div class="text-xs text-indigo-200">PREMIER w</div>
+                        <div class="text-2xl font-bold">3. miesiacu</div>
+                    </div>
+                    <div class="bg-white/20 rounded-lg px-4 py-2">
+                        <div class="text-xs text-indigo-200">SILVER w</div>
+                        <div class="text-2xl font-bold">6. miesiacu</div>
+                    </div>
+                    <div class="bg-white/20 rounded-lg px-4 py-2">
+                        <div class="text-xs text-indigo-200">GOLD w</div>
+                        <div class="text-2xl font-bold">10. miesiacu</div>
+                    </div>
+                    <div class="bg-white/20 rounded-lg px-4 py-2">
+                        <div class="text-xs text-indigo-200">Suma 12 mies.</div>
+                        <div class="text-2xl font-bold">91 636 zl</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabela szczegolowa -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="bg-gray-800 text-white">
+                            <tr>
+                                <th class="px-4 py-3 text-left font-semibold">Mies.</th>
+                                <th class="px-4 py-3 text-left font-semibold">Ranga</th>
+                                <th class="px-4 py-3 text-right font-semibold">OV</th>
+                                <th class="px-4 py-3 text-right font-semibold">PGV</th>
+                                <th class="px-4 py-3 text-right font-semibold">Rej. klient</th>
+                                <th class="px-4 py-3 text-right font-semibold">Rej. buduj.</th>
+                                <th class="px-4 py-3 text-right font-semibold">Konta LRP</th>
+                                <th class="px-4 py-3 text-right font-semibold text-green-400">Zarobek</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="rank-executive hover:bg-gray-50">
+                                <td class="px-4 py-3 font-semibold">1</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-200 rounded text-xs font-semibold">EXECUTIVE</span></td>
+                                <td class="px-4 py-3 text-right">2 720</td>
+                                <td class="px-4 py-3 text-right text-gray-400">-</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right text-gray-400">-</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">1 897,80 zl</td>
+                            </tr>
+                            <tr class="rank-elite hover:bg-blue-50">
+                                <td class="px-4 py-3 font-semibold">2</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-blue-200 rounded text-xs font-semibold">ELITE</span></td>
+                                <td class="px-4 py-3 text-right">4 133</td>
+                                <td class="px-4 py-3 text-right">375</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right">3</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">2 577,36 zl</td>
+                            </tr>
+                            <tr class="rank-premier hover:bg-amber-50 highlight-row">
+                                <td class="px-4 py-3 font-semibold">3</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-amber-300 rounded text-xs font-semibold">PREMIER</span></td>
+                                <td class="px-4 py-3 text-right">5 546</td>
+                                <td class="px-4 py-3 text-right">750</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right">6</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">3 832,36 zl</td>
+                            </tr>
+                            <tr class="rank-premier hover:bg-amber-50">
+                                <td class="px-4 py-3 font-semibold">4</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-amber-300 rounded text-xs font-semibold">PREMIER</span></td>
+                                <td class="px-4 py-3 text-right">6 959</td>
+                                <td class="px-4 py-3 text-right">1 125</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right">9</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">4 673,98 zl</td>
+                            </tr>
+                            <tr class="rank-premier hover:bg-amber-50">
+                                <td class="px-4 py-3 font-semibold">5</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-amber-300 rounded text-xs font-semibold">PREMIER</span></td>
+                                <td class="px-4 py-3 text-right">8 247</td>
+                                <td class="px-4 py-3 text-right">1 500</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right">12</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">5 119,54 zl</td>
+                            </tr>
+                            <tr class="rank-silver hover:bg-gray-100 highlight-row">
+                                <td class="px-4 py-3 font-semibold">6</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-300 rounded text-xs font-semibold">SILVER</span></td>
+                                <td class="px-4 py-3 text-right">9 660</td>
+                                <td class="px-4 py-3 text-right">1 875</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right">15</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">7 308,60 zl</td>
+                            </tr>
+                            <tr class="rank-silver hover:bg-gray-100">
+                                <td class="px-4 py-3 font-semibold">7</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-300 rounded text-xs font-semibold">SILVER</span></td>
+                                <td class="px-4 py-3 text-right">11 323</td>
+                                <td class="px-4 py-3 text-right">2 500</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right">20</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">7 935,66 zl</td>
+                            </tr>
+                            <tr class="rank-silver hover:bg-gray-100">
+                                <td class="px-4 py-3 font-semibold">8</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-300 rounded text-xs font-semibold">SILVER</span></td>
+                                <td class="px-4 py-3 text-right">12 986</td>
+                                <td class="px-4 py-3 text-right">3 125</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right">25</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">8 397,72 zl</td>
+                            </tr>
+                            <tr class="rank-silver hover:bg-gray-100">
+                                <td class="px-4 py-3 font-semibold">9</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-300 rounded text-xs font-semibold">SILVER</span></td>
+                                <td class="px-4 py-3 text-right">14 524</td>
+                                <td class="px-4 py-3 text-right">3 625</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right">29</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">8 843,28 zl</td>
+                            </tr>
+                            <tr class="rank-gold hover:bg-yellow-50 highlight-row">
+                                <td class="px-4 py-3 font-semibold">10</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-yellow-400 rounded text-xs font-semibold">GOLD</span></td>
+                                <td class="px-4 py-3 text-right">16 062</td>
+                                <td class="px-4 py-3 text-right">4 125</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right">33</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">11 928,84 zl</td>
+                            </tr>
+                            <tr class="rank-gold hover:bg-yellow-50">
+                                <td class="px-4 py-3 font-semibold">11</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-yellow-400 rounded text-xs font-semibold">GOLD</span></td>
+                                <td class="px-4 py-3 text-right">17 850</td>
+                                <td class="px-4 py-3 text-right">4 875</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right">39</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">12 407,40 zl</td>
+                            </tr>
+                            <tr class="rank-gold hover:bg-yellow-50">
+                                <td class="px-4 py-3 font-semibold">12</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-yellow-400 rounded text-xs font-semibold">GOLD</span></td>
+                                <td class="px-4 py-3 text-right">20 263</td>
+                                <td class="px-4 py-3 text-right">6 250</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right">50</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">16 713,46 zl</td>
+                            </tr>
+                        </tbody>
+                        <tfoot class="bg-gray-900 text-white">
+                            <tr>
+                                <td colspan="7" class="px-4 py-4 text-right font-semibold text-lg">SUMA ZAROBKOW (12 mies.):</td>
+                                <td class="px-4 py-4 text-right font-bold text-2xl text-green-400">91 636,00 zl</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Rozklad zarobkow -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Szczegolowy rozklad zarobkow - wybrane miesiace</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                    <!-- Miesiac 3 - PREMIER -->
+                    <div class="border border-amber-200 rounded-lg p-4 bg-amber-50">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-bold text-gray-800">Miesiac 3</span>
+                            <span class="px-2 py-1 bg-amber-300 rounded text-xs font-semibold">PREMIER</span>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between"><span class="text-gray-600">Fast Start</span><span class="font-medium">2 577,36 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">PM3 poz. 1 (boost)</span><span class="font-medium">375,00 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">Premia Premier</span><span class="font-medium">880,00 zl</span></div>
+                            <div class="border-t pt-2 flex justify-between font-bold"><span>SUMA</span><span class="text-green-600">3 832,36 zl</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Miesiac 6 - SILVER -->
+                    <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-bold text-gray-800">Miesiac 6</span>
+                            <span class="px-2 py-1 bg-gray-300 rounded text-xs font-semibold">SILVER</span>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between"><span class="text-gray-600">Fast Start</span><span class="font-medium">4 095,60 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">PM3 poz. 1 (boost)</span><span class="font-medium">375,00 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">Premia Silver (3x)</span><span class="font-medium">2 640,00 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">Unilewel</span><span class="font-medium">198,00 zl</span></div>
+                            <div class="border-t pt-2 flex justify-between font-bold"><span>SUMA</span><span class="text-green-600">7 308,60 zl</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Miesiac 12 - GOLD -->
+                    <div class="border border-yellow-300 rounded-lg p-4 bg-yellow-50">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-bold text-gray-800">Miesiac 12</span>
+                            <span class="px-2 py-1 bg-yellow-400 rounded text-xs font-semibold">GOLD</span>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between"><span class="text-gray-600">Fast Start</span><span class="font-medium">6 372,96 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">PM3 poz. 3 (boost)</span><span class="font-medium">5 605,00 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">Premia Gold</span><span class="font-medium">3 960,00 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">Unilewel</span><span class="font-medium">775,50 zl</span></div>
+                            <div class="border-t pt-2 flex justify-between font-bold"><span>SUMA</span><span class="text-green-600">16 713,46 zl</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenariusz Umiarkowany -->
+        <div id="moderate" class="scenario-content">
+
+            <!-- Zalozenia scenariusza -->
+            <div class="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl p-6 text-white mb-6">
+                <h3 class="text-xl font-bold mb-3">Scenariusz Umiarkowany - Zalozenia</h3>
+                <ul class="space-y-2 text-emerald-100">
+                    <li class="flex items-start"><svg class="w-5 h-5 mr-2 mt-0.5 text-emerald-200" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>5 rejestracji co miesiac - 1 do pracy, 4 klientow</li>
+                    <li class="flex items-start"><svg class="w-5 h-5 mr-2 mt-0.5 text-emerald-200" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Osoby budujace robia 2 rejestracje w kolejnych miesiacach</li>
+                    <li class="flex items-start"><svg class="w-5 h-5 mr-2 mt-0.5 text-emerald-200" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>1 klient wchodzi na LRP 125 PV <strong>co drugi miesiac</strong></li>
+                    <li class="flex items-start"><svg class="w-5 h-5 mr-2 mt-0.5 text-emerald-200" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Ty robisz zamowienie na 125 PV w kazdym miesiacu</li>
+                </ul>
+                <div class="mt-4 pt-4 border-t border-emerald-400 flex flex-wrap gap-4">
+                    <div class="bg-white/20 rounded-lg px-4 py-2">
+                        <div class="text-xs text-emerald-200">PREMIER w</div>
+                        <div class="text-2xl font-bold">7. miesiacu</div>
+                    </div>
+                    <div class="bg-white/20 rounded-lg px-4 py-2">
+                        <div class="text-xs text-emerald-200">SILVER w</div>
+                        <div class="text-2xl font-bold">12. miesiacu</div>
+                    </div>
+                    <div class="bg-white/20 rounded-lg px-4 py-2">
+                        <div class="text-xs text-emerald-200">Suma 12 mies.</div>
+                        <div class="text-2xl font-bold">37 490 zl</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabela szczegolowa -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="bg-gray-800 text-white">
+                            <tr>
+                                <th class="px-4 py-3 text-left font-semibold">Mies.</th>
+                                <th class="px-4 py-3 text-left font-semibold">Ranga</th>
+                                <th class="px-4 py-3 text-right font-semibold">OV</th>
+                                <th class="px-4 py-3 text-right font-semibold">PGV</th>
+                                <th class="px-4 py-3 text-right font-semibold">Rej. klient</th>
+                                <th class="px-4 py-3 text-right font-semibold">Rej. buduj.</th>
+                                <th class="px-4 py-3 text-right font-semibold">Konta LRP</th>
+                                <th class="px-4 py-3 text-right font-semibold text-green-400">Zarobek</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="rank-director hover:bg-gray-50">
+                                <td class="px-4 py-3 font-semibold">1</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-100 rounded text-xs font-semibold">DIRECTOR</span></td>
+                                <td class="px-4 py-3 text-right">1 422</td>
+                                <td class="px-4 py-3 text-right text-gray-400">-</td>
+                                <td class="px-4 py-3 text-right">4</td>
+                                <td class="px-4 py-3 text-right">1</td>
+                                <td class="px-4 py-3 text-right text-gray-400">-</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">948,90 zl</td>
+                            </tr>
+                            <tr class="rank-executive hover:bg-gray-50">
+                                <td class="px-4 py-3 font-semibold">2</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-200 rounded text-xs font-semibold">EXECUTIVE</span></td>
+                                <td class="px-4 py-3 text-right">2 191</td>
+                                <td class="px-4 py-3 text-right">250</td>
+                                <td class="px-4 py-3 text-right">4</td>
+                                <td class="px-4 py-3 text-right">1</td>
+                                <td class="px-4 py-3 text-right">2</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">1 338,68 zl</td>
+                            </tr>
+                            <tr class="rank-executive hover:bg-gray-50">
+                                <td class="px-4 py-3 font-semibold">3</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-200 rounded text-xs font-semibold">EXECUTIVE</span></td>
+                                <td class="px-4 py-3 text-right">2 835</td>
+                                <td class="px-4 py-3 text-right">375</td>
+                                <td class="px-4 py-3 text-right">4</td>
+                                <td class="px-4 py-3 text-right">1</td>
+                                <td class="px-4 py-3 text-right">3</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">1 428,46 zl</td>
+                            </tr>
+                            <tr class="rank-elite hover:bg-blue-50">
+                                <td class="px-4 py-3 font-semibold">4</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-blue-200 rounded text-xs font-semibold">ELITE</span></td>
+                                <td class="px-4 py-3 text-right">3 604</td>
+                                <td class="px-4 py-3 text-right">1 125</td>
+                                <td class="px-4 py-3 text-right">4</td>
+                                <td class="px-4 py-3 text-right">1</td>
+                                <td class="px-4 py-3 text-right">5</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">2 075,74 zl</td>
+                            </tr>
+                            <tr class="rank-elite hover:bg-blue-50">
+                                <td class="px-4 py-3 font-semibold">5</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-blue-200 rounded text-xs font-semibold">ELITE</span></td>
+                                <td class="px-4 py-3 text-right">4 123</td>
+                                <td class="px-4 py-3 text-right">750</td>
+                                <td class="px-4 py-3 text-right">4</td>
+                                <td class="px-4 py-3 text-right">1</td>
+                                <td class="px-4 py-3 text-right">6</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">2 265,52 zl</td>
+                            </tr>
+                            <tr class="rank-elite hover:bg-blue-50">
+                                <td class="px-4 py-3 font-semibold">6</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-blue-200 rounded text-xs font-semibold">ELITE</span></td>
+                                <td class="px-4 py-3 text-right">4 892</td>
+                                <td class="px-4 py-3 text-right">1 000</td>
+                                <td class="px-4 py-3 text-right">4</td>
+                                <td class="px-4 py-3 text-right">1</td>
+                                <td class="px-4 py-3 text-right">8</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">2 455,30 zl</td>
+                            </tr>
+                            <tr class="rank-premier hover:bg-amber-50 highlight-row">
+                                <td class="px-4 py-3 font-semibold">7</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-amber-300 rounded text-xs font-semibold">PREMIER</span></td>
+                                <td class="px-4 py-3 text-right">5 536</td>
+                                <td class="px-4 py-3 text-right">1 125</td>
+                                <td class="px-4 py-3 text-right">4</td>
+                                <td class="px-4 py-3 text-right">1</td>
+                                <td class="px-4 py-3 text-right">9</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">3 541,58 zl</td>
+                            </tr>
+                            <tr class="rank-premier hover:bg-amber-50">
+                                <td class="px-4 py-3 font-semibold">8</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-amber-300 rounded text-xs font-semibold">PREMIER</span></td>
+                                <td class="px-4 py-3 text-right">6 305</td>
+                                <td class="px-4 py-3 text-right">1 375</td>
+                                <td class="px-4 py-3 text-right">4</td>
+                                <td class="px-4 py-3 text-right">1</td>
+                                <td class="px-4 py-3 text-right">11</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">3 764,36 zl</td>
+                            </tr>
+                            <tr class="rank-premier hover:bg-amber-50">
+                                <td class="px-4 py-3 font-semibold">9</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-amber-300 rounded text-xs font-semibold">PREMIER</span></td>
+                                <td class="px-4 py-3 text-right">6 949</td>
+                                <td class="px-4 py-3 text-right">1 500</td>
+                                <td class="px-4 py-3 text-right">4</td>
+                                <td class="px-4 py-3 text-right">1</td>
+                                <td class="px-4 py-3 text-right">12</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">3 970,64 zl</td>
+                            </tr>
+                            <tr class="rank-premier hover:bg-amber-50">
+                                <td class="px-4 py-3 font-semibold">10</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-amber-300 rounded text-xs font-semibold">PREMIER</span></td>
+                                <td class="px-4 py-3 text-right">7 718</td>
+                                <td class="px-4 py-3 text-right">1 750</td>
+                                <td class="px-4 py-3 text-right">4</td>
+                                <td class="px-4 py-3 text-right">1</td>
+                                <td class="px-4 py-3 text-right">14</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">4 193,42 zl</td>
+                            </tr>
+                            <tr class="rank-premier hover:bg-amber-50">
+                                <td class="px-4 py-3 font-semibold">11</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-amber-300 rounded text-xs font-semibold">PREMIER</span></td>
+                                <td class="px-4 py-3 text-right">8 362</td>
+                                <td class="px-4 py-3 text-right">1 875</td>
+                                <td class="px-4 py-3 text-right">4</td>
+                                <td class="px-4 py-3 text-right">1</td>
+                                <td class="px-4 py-3 text-right">15</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">4 399,70 zl</td>
+                            </tr>
+                            <tr class="rank-silver hover:bg-gray-100 highlight-row">
+                                <td class="px-4 py-3 font-semibold">12</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-300 rounded text-xs font-semibold">SILVER</span></td>
+                                <td class="px-4 py-3 text-right">9 131</td>
+                                <td class="px-4 py-3 text-right">2 125</td>
+                                <td class="px-4 py-3 text-right">4</td>
+                                <td class="px-4 py-3 text-right">1</td>
+                                <td class="px-4 py-3 text-right">17</td>
+                                <td class="px-4 py-3 text-right font-bold text-green-600">6 647,48 zl</td>
+                            </tr>
+                        </tbody>
+                        <tfoot class="bg-gray-900 text-white">
+                            <tr>
+                                <td colspan="7" class="px-4 py-4 text-right font-semibold text-lg">SUMA ZAROBKOW (12 mies.):</td>
+                                <td class="px-4 py-4 text-right font-bold text-2xl text-green-400">37 029,78 zl</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Rozklad zarobkow -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Szczegolowy rozklad zarobkow - wybrane miesiace</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                    <!-- Miesiac 4 - ELITE -->
+                    <div class="border border-blue-200 rounded-lg p-4 bg-blue-50">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-bold text-gray-800">Miesiac 4</span>
+                            <span class="px-2 py-1 bg-blue-200 rounded text-xs font-semibold">ELITE</span>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between"><span class="text-gray-600">Fast Start</span><span class="font-medium">1 618,24 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">PM3 poz. 1 (boost)</span><span class="font-medium">375,00 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">Unilewel</span><span class="font-medium">82,50 zl</span></div>
+                            <div class="border-t pt-2 flex justify-between font-bold"><span>SUMA</span><span class="text-green-600">2 075,74 zl</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Miesiac 7 - PREMIER -->
+                    <div class="border border-amber-200 rounded-lg p-4 bg-amber-50">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-bold text-gray-800">Miesiac 7</span>
+                            <span class="px-2 py-1 bg-amber-300 rounded text-xs font-semibold">PREMIER</span>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between"><span class="text-gray-600">Fast Start</span><span class="font-medium">2 187,58 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">PM3 poz. 1 (boost)</span><span class="font-medium">375,00 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">Premia Premier</span><span class="font-medium">880,00 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">Unilewel</span><span class="font-medium">99,00 zl</span></div>
+                            <div class="border-t pt-2 flex justify-between font-bold"><span>SUMA</span><span class="text-green-600">3 541,58 zl</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Miesiac 12 - SILVER -->
+                    <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-bold text-gray-800">Miesiac 12</span>
+                            <span class="px-2 py-1 bg-gray-300 rounded text-xs font-semibold">SILVER</span>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between"><span class="text-gray-600">Fast Start</span><span class="font-medium">3 236,48 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">PM3 poz. 2 (boost)</span><span class="font-medium">1 860,00 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">Premia Silver</span><span class="font-medium">1 320,00 zl</span></div>
+                            <div class="flex justify-between"><span class="text-gray-600">Unilewel</span><span class="font-medium">231,00 zl</span></div>
+                            <div class="border-t pt-2 flex justify-between font-bold"><span>SUMA</span><span class="text-green-600">6 647,48 zl</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Porownanie scenariuszy -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mt-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+                Porownanie scenariuszy
+            </h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="px-4 py-3 text-left font-semibold text-gray-700"></th>
+                            <th class="px-4 py-3 text-center font-semibold text-indigo-600">Intensywny</th>
+                            <th class="px-4 py-3 text-center font-semibold text-emerald-600">Umiarkowany</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr>
+                            <td class="px-4 py-3 font-medium text-gray-700">Rejestracje / miesiac</td>
+                            <td class="px-4 py-3 text-center font-semibold">10</td>
+                            <td class="px-4 py-3 text-center font-semibold">5</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-3 font-medium text-gray-700">Osoby budujace</td>
+                            <td class="px-4 py-3 text-center">2 / miesiac</td>
+                            <td class="px-4 py-3 text-center">1 / miesiac</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-medium text-gray-700">PREMIER osiagniety w</td>
+                            <td class="px-4 py-3 text-center font-bold text-amber-600">3. miesiacu</td>
+                            <td class="px-4 py-3 text-center font-bold text-amber-600">7. miesiacu</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-3 font-medium text-gray-700">SILVER osiagniety w</td>
+                            <td class="px-4 py-3 text-center font-bold text-gray-600">6. miesiacu</td>
+                            <td class="px-4 py-3 text-center font-bold text-gray-600">12. miesiacu</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-medium text-gray-700">GOLD osiagniety w</td>
+                            <td class="px-4 py-3 text-center font-bold text-yellow-600">10. miesiacu</td>
+                            <td class="px-4 py-3 text-center text-gray-400">-</td>
+                        </tr>
+                        <tr class="bg-indigo-50">
+                            <td class="px-4 py-3 font-bold text-gray-800">Suma zarobkow (12 mies.)</td>
+                            <td class="px-4 py-3 text-center font-bold text-xl text-green-600">91 636 zl</td>
+                            <td class="px-4 py-3 text-center font-bold text-xl text-green-600">37 030 zl</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-3 font-medium text-gray-700">Sredni zarobek / miesiac</td>
+                            <td class="px-4 py-3 text-center font-semibold">7 636 zl</td>
+                            <td class="px-4 py-3 text-center font-semibold">3 086 zl</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Przelaczanie scenariuszy
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const scenarioContents = document.querySelectorAll('.scenario-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const scenario = btn.dataset.scenario;
+
+                // Usun active ze wszystkich
+                tabBtns.forEach(b => b.classList.remove('active'));
+                scenarioContents.forEach(c => c.classList.remove('active'));
+
+                // Dodaj active do wybranych
+                btn.classList.add('active');
+                document.getElementById(scenario).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

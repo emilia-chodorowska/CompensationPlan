@@ -15,95 +15,844 @@
     margin: 0;
     padding: 20px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
   }
+
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+
+  .tab-button {
+    padding: 12px 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #f3f4f6;
+    color: #374151;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .tab-button:hover {
+    background-color: #e5e7eb;
+  }
+
+  .tab-button.active {
+    background-color: #374151;
+    color: #ffffff;
+  }
+
+  .tab-content {
+    display: none;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .tab-content.active {
+    display: flex;
+    justify-content: center;
+  }
+
   .table-container {
     width: 90%;
     max-width: 1000px;
     margin: auto;
     aspect-ratio: 2.14 / 1;
-    /* border: 1px solid #ccc; Usunięte obramowanie */
   }
+
+  .table-container-wide {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+  }
+
   .custom-table {
     width: 100%;
-    height: 100%; /* Tabela wypełnia kontener */
+    height: 100%;
     border-collapse: collapse;
     text-align: left;
     color: #333;
-    font-size: 32px; /* Maksymalnie zwiększona czcionka bazowa */
+    font-size: 32px;
     font-weight: 500;
     table-layout: fixed;
     word-break: break-word;
   }
+
   .custom-table th, .custom-table td {
-    padding: 15px 10px; /* Zmniejszone odstępy */
+    padding: 15px 10px;
     border-bottom: 1px solid #dee2e6;
-    vertical-align: middle; /* Wyrównanie w pionie */
+    vertical-align: middle;
   }
+
   .custom-table th {
-    background-color: #f3f4f6; /* Zmieniony kolor tła */
-    color: #374151; /* Grafitowy kolor tekstu */
+    background-color: #f3f4f6;
+    color: #374151;
     font-weight: 700;
-    font-size: 30px; /* Maksymalnie zwiększona czcionka nagłówka */
+    font-size: 30px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
+
   .custom-table tbody tr:last-child td {
     border-bottom: none;
   }
+
   .custom-table .highlight-strong {
     font-weight: 700;
-    font-size: 34px; /* Maksymalnie zwiększona czcionka wyróżnienia */
+    font-size: 34px;
     color: #212529;
   }
+
   .custom-table .highlight-green {
     color: #28a745;
     font-weight: 500;
+  }
+
+  /* Nowa tabela - style */
+  .registration-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .registration-table td:nth-child(3),
+  .registration-table td:nth-child(4),
+  .registration-table td:nth-child(5) {
+    text-align: left;
+  }
+
+  .registration-table th, .registration-table td {
+    padding: 12px 8px;
+    border: 1px solid #dee2e6;
+    vertical-align: middle;
+  }
+
+  .registration-table td {
+    white-space: nowrap;
+  }
+
+  /* Wyśrodkowanie komórek z pojedynczym myślnikiem */
+  .registration-table .dash-cell {
+    text-align: center !important;
+  }
+
+  .registration-table th {
+    background-color: #f1e8f3;
+    color: #333;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .registration-table tbody tr:nth-child(even) {
+    background-color: #f1e8f3;
+  }
+
+  .registration-table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  .registration-table .summary-row {
+    background-color: #f1e8f3 !important;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .registration-table .summary-row td {
+    text-align: center;
+  }
+
+  .registration-table .highlight-box {
+    border: 3px solid #7e5a8f;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  /* Tabela w stylu fioletowym */
+  .purple-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .purple-table th, .purple-table td {
+    padding: 12px 8px;
+    border: 2px solid #ffffff;
+    vertical-align: middle;
+  }
+
+  .purple-table th {
+    background-color: #0f2841;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: 0.5px;
+  }
+
+  .purple-table tbody tr:nth-child(even) {
+    background-color: #8dce9a;
+  }
+
+  .purple-table tbody tr:nth-child(odd) {
+    background-color: #c6e2c9;
+  }
+
+  .purple-table .highlight-strong {
+    font-weight: 500;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .purple-table .highlight-green {
+    color: #28a745;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  /* Tabela zielona wide */
+  .green-table-wide {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .green-table-wide td:nth-child(3),
+  .green-table-wide td:nth-child(4),
+  .green-table-wide td:nth-child(5) {
+    text-align: left;
+  }
+
+  .green-table-wide th, .green-table-wide td {
+    padding: 12px 8px;
+    border: 2px solid #ffffff;
+    vertical-align: middle;
+  }
+
+  .green-table-wide td {
+    white-space: nowrap;
+  }
+
+  /* Wyśrodkowanie komórek z pojedynczym myślnikiem */
+  .green-table-wide .dash-cell {
+    text-align: center !important;
+  }
+
+  .green-table-wide th {
+    background-color: #0f2841;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .green-table-wide tbody tr:nth-child(even) {
+    background-color: #8dce9a;
+  }
+
+  .green-table-wide tbody tr:nth-child(odd) {
+    background-color: #c6e2c9;
+  }
+
+  .green-table-wide .summary-row {
+    color: #333;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .green-table-wide .summary-row td {
+    text-align: center;
+  }
+
+  /* Specjalne style dla konkretnych tabel */
+  #tab5 .summary-row {
+    background-color: #8dce9a !important; /* TGV - ciemny */
+  }
+
+  #tab6 .summary-row {
+    background-color: #8dce9a !important; /* PGV - ciemny */
+  }
+
+  /* Wyśrodkowanie dla zakładek 7 i 8 */
+  #tab7 .green-table-wide td,
+  #tab7 .green-table-wide th,
+  #tab8 .green-table-wide td,
+  #tab8 .green-table-wide th {
+    text-align: center !important;
+  }
+  .back-nav {
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    color: #374151;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .back-link:hover {
+    background-color: #e5e7eb;
+    color: #111827;
+  }
+
+  .back-link svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
   }
 </style>
 </head>
 <body>
 
-    <div class="table-container">
-      <table class="custom-table">
-        <colgroup>
-          <col style="width: 18%;">
-          <col style="width: 22%;">
-          <col style="width: 30%;">
-          <col style="width: 30%;">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>POZIOM</th>
-            <th>PODSTAWA</th>
-            <th>BOOST<br>(PGV 400+)</th>
-            <th>BOOST<br>(PGV 800+)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Poziom 1</td>
-            <td class="highlight-strong">185 zł</td>
-            <td><span class="highlight-strong">370 zł</span> <span class="highlight-green">(+185 zł)</span></td>
-            <td><span class="highlight-strong">370 zł</span> <span class="highlight-green">(+185 zł)</span></td>
-          </tr>
-          <tr>
-            <td>Poziom 2</td>
-            <td class="highlight-strong">930 zł</td>
-            <td><span class="highlight-strong">1115 zł</span> <span class="highlight-green">(+185 zł)</span></td>
-            <td><span class="highlight-strong">1860 zł</span> <span class="highlight-green">(+930 zł)</span></td>
-          </tr>
-          <tr>
-            <td>Poziom 3</td>
-            <td class="highlight-strong">4675 zł</td>
-            <td><span class="highlight-strong">4860 zł</span> <span class="highlight-green">(+185 zł)</span></td>
-            <td><span class="highlight-strong">5605 zł</span> <span class="highlight-green">(+930 zł)</span></td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Nawigacja -->
+    <nav class="back-nav">
+        <a href="index.html" class="back-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Powrot do menu
+        </a>
+    </nav>
+
+    <!-- Zakładki -->
+    <div class="tabs">
+      <button class="tab-button active" onclick="openTab(event, 'tab1')">Tabela Premii</button>
+      <button class="tab-button" onclick="openTab(event, 'tab2')">PGV</button>
+      <button class="tab-button" onclick="openTab(event, 'tab3')">TGV</button>
+      <button class="tab-button" onclick="openTab(event, 'tab4')">Tabela Premii Zielona</button>
+      <button class="tab-button" onclick="openTab(event, 'tab5')">TGV Zielona</button>
+      <button class="tab-button" onclick="openTab(event, 'tab6')">PGV Zielona</button>
+      <button class="tab-button" onclick="openTab(event, 'tab7')">Premier, Silver, Gold</button>
+      <button class="tab-button" onclick="openTab(event, 'tab8')">Platinum i wyższe</button>
     </div>
+
+    <!-- Zakładka 1: Tabela Premii -->
+    <div id="tab1" class="tab-content active">
+      <div class="table-container">
+        <table class="custom-table">
+          <colgroup>
+            <col style="width: 18%;">
+            <col style="width: 22%;">
+            <col style="width: 30%;">
+            <col style="width: 30%;">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>POZIOM</th>
+              <th>PODSTAWA</th>
+              <th>BOOST<br>(PGV 400+)</th>
+              <th>BOOST<br>(PGV 800+)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Poziom 1</td>
+              <td class="highlight-strong">185 zł</td>
+              <td><span class="highlight-strong">370 zł</span> <span class="highlight-green">(+185 zł)</span></td>
+              <td><span class="highlight-strong">370 zł</span> <span class="highlight-green">(+185 zł)</span></td>
+            </tr>
+            <tr>
+              <td>Poziom 2</td>
+              <td class="highlight-strong">930 zł</td>
+              <td><span class="highlight-strong">1115 zł</span> <span class="highlight-green">(+185 zł)</span></td>
+              <td><span class="highlight-strong">1860 zł</span> <span class="highlight-green">(+930 zł)</span></td>
+            </tr>
+            <tr>
+              <td>Poziom 3</td>
+              <td class="highlight-strong">4675 zł</td>
+              <td><span class="highlight-strong">4860 zł</span> <span class="highlight-green">(+185 zł)</span></td>
+              <td><span class="highlight-strong">5605 zł</span> <span class="highlight-green">(+930 zł)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Zakładka 2: PGV -->
+    <div id="tab2" class="tab-content">
+      <div class="table-container-wide">
+        <table class="registration-table">
+          <thead>
+            <tr>
+              <th>Imię</th>
+              <th>Data rejestracji /<br>ponownej aktywacji</th>
+              <th>Paź 2024</th>
+              <th>Lis 2024</th>
+              <th>Gru 2024</th>
+              <th>Pozostała liczba miesięcy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hanna</td>
+              <td>Sty 2024</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Ignacy</td>
+              <td>Lut 2024</td>
+              <td>LRP o wartości 150 PV</td>
+              <td>LRP o wartości 75 PV</td>
+              <td>LRP o wartości 75 PV</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Joanna</td>
+              <td>Mar 2024</td>
+              <td>LRP o wartości 250 PV</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Inga</td>
+              <td>Wrz 2024</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>LRP o wartości 150 PV</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>Lidia</td>
+              <td>Paź 2024</td>
+              <td>Zamówienie wpisowe</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>LRP o wartości 150 PV</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Mateusz</td>
+              <td>Kwi 2020<br>Lis 2024 (ponowna aktywacja)</td>
+              <td class="dash-cell">—</td>
+              <td>Zamówienie reaktywacyjne</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>11</td>
+            </tr>
+            <tr>
+              <td>Natalia</td>
+              <td>Cze 2024</td>
+              <td>LRP o wartości 200 PV</td>
+              <td>LRP o wartości 250 PV</td>
+              <td>LRP o wartości 200 PV</td>
+              <td>6</td>
+            </tr>
+            <tr class="summary-row">
+              <td colspan="2">Łączna wartość obrotów<br>wynikająca ze wzrostu osobistego<br>(PGV)</td>
+              <td>825 PGV</td>
+              <td>800 PGV</td>
+              <td>875 PGV</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Zakładka 3: TGV -->
+    <div id="tab3" class="tab-content">
+      <div class="table-container-wide">
+        <table class="registration-table">
+          <thead>
+            <tr>
+              <th>Imię</th>
+              <th>Data rejestracji /<br>ponownej aktywacji</th>
+              <th>Paź 2024</th>
+              <th>Lis 2024</th>
+              <th>Gru 2024</th>
+              <th>Pozostała liczba miesięcy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Agnieszka</td>
+              <td>Sty 2024</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Barbara</td>
+              <td>Lut 2024</td>
+              <td>150 PV</td>
+              <td>75 PV</td>
+              <td>75 PV</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Kamila</td>
+              <td>Mar 2024</td>
+              <td>LRP o wartości 250 PV</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Dorota</td>
+              <td>Kwi 2020<br>Paź 2024 (ponowna aktywacja)</td>
+              <td>Zamówienie reaktywacyjne</td>
+              <td>LRP o wartości 150 PV</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Elżbieta</td>
+              <td>Paź 2024</td>
+              <td>Zamówienie wpisowe</td>
+              <td>100 PV</td>
+              <td>150 PV</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Filip</td>
+              <td>Lis 2024</td>
+              <td class="dash-cell">—</td>
+              <td>Zamówienie wpisowe</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>11</td>
+            </tr>
+            <tr>
+              <td>Grażyna</td>
+              <td>Cze 2024</td>
+              <td>LRP o wartości 200 PV</td>
+              <td>LRP o wartości 250 PV</td>
+              <td>LRP o wartości 200 PV</td>
+              <td>6</td>
+            </tr>
+            <tr class="summary-row">
+              <td colspan="2">Łączny wzrost zespołowy<br>(TGV)</td>
+              <td>725 TGV</td>
+              <td>800 TGV</td>
+              <td>875 TGV</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Zakładka 4: Tabela Premii Zielona -->
+    <div id="tab4" class="tab-content">
+      <div class="table-container">
+        <table class="purple-table">
+          <colgroup>
+            <col style="width: 18%;">
+            <col style="width: 22%;">
+            <col style="width: 30%;">
+            <col style="width: 30%;">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Poziom</th>
+              <th>Podstawa</th>
+              <th>Boost<br>(PGV 400+)</th>
+              <th>Boost<br>(PGV 800+)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Poziom 1</td>
+              <td class="highlight-strong">185 zł</td>
+              <td><span class="highlight-strong">370 zł</span> <span class="highlight-green">(+185 zł)</span></td>
+              <td><span class="highlight-strong">370 zł</span> <span class="highlight-green">(+185 zł)</span></td>
+            </tr>
+            <tr>
+              <td>Poziom 2</td>
+              <td class="highlight-strong">930 zł</td>
+              <td><span class="highlight-strong">1115 zł</span> <span class="highlight-green">(+185 zł)</span></td>
+              <td><span class="highlight-strong">1860 zł</span> <span class="highlight-green">(+930 zł)</span></td>
+            </tr>
+            <tr>
+              <td>Poziom 3</td>
+              <td class="highlight-strong">4675 zł</td>
+              <td><span class="highlight-strong">4860 zł</span> <span class="highlight-green">(+185 zł)</span></td>
+              <td><span class="highlight-strong">5605 zł</span> <span class="highlight-green">(+930 zł)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Zakładka 5: TGV Zielona -->
+    <div id="tab5" class="tab-content">
+      <div class="table-container-wide">
+        <table class="green-table-wide">
+          <thead>
+            <tr>
+              <th>Imię</th>
+              <th>Data rejestracji /<br>ponownej aktywacji</th>
+              <th>Paź 2024</th>
+              <th>Lis 2024</th>
+              <th>Gru 2024</th>
+              <th>Pozostała liczba miesięcy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Agnieszka</td>
+              <td>Sty 2024</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Barbara</td>
+              <td>Lut 2024</td>
+              <td>150 PV</td>
+              <td>75 PV</td>
+              <td>75 PV</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Kamila</td>
+              <td>Mar 2024</td>
+              <td>LRP o wartości 250 PV</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Dorota</td>
+              <td>Kwi 2020<br>Paź 2024 (ponowna aktywacja)</td>
+              <td>Zamówienie reaktywacyjne</td>
+              <td>LRP o wartości 150 PV</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Elżbieta</td>
+              <td>Paź 2024</td>
+              <td>Zamówienie wpisowe</td>
+              <td>100 PV</td>
+              <td>150 PV</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Filip</td>
+              <td>Lis 2024</td>
+              <td class="dash-cell">—</td>
+              <td>Zamówienie wpisowe</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>11</td>
+            </tr>
+            <tr>
+              <td>Grażyna</td>
+              <td>Cze 2024</td>
+              <td>LRP o wartości 200 PV</td>
+              <td>LRP o wartości 250 PV</td>
+              <td>LRP o wartości 200 PV</td>
+              <td>6</td>
+            </tr>
+            <tr class="summary-row">
+              <td colspan="2">Łączny wzrost zespołowy<br>(TGV)</td>
+              <td>725 TGV</td>
+              <td>800 TGV</td>
+              <td>875 TGV</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Zakładka 6: PGV Zielona -->
+    <div id="tab6" class="tab-content">
+      <div class="table-container-wide">
+        <table class="green-table-wide">
+          <thead>
+            <tr>
+              <th>Imię</th>
+              <th>Data rejestracji /<br>ponownej aktywacji</th>
+              <th>Paź 2024</th>
+              <th>Lis 2024</th>
+              <th>Gru 2024</th>
+              <th>Pozostała liczba miesięcy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hanna</td>
+              <td>Sty 2024</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Ignacy</td>
+              <td>Lut 2024</td>
+              <td>LRP o wartości 150 PV</td>
+              <td>LRP o wartości 75 PV</td>
+              <td>LRP o wartości 75 PV</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Joanna</td>
+              <td>Mar 2024</td>
+              <td>LRP o wartości 250 PV</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Inga</td>
+              <td>Wrz 2024</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>LRP o wartości 150 PV</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>Lidia</td>
+              <td>Paź 2024</td>
+              <td>Zamówienie wpisowe</td>
+              <td>LRP o wartości 100 PV</td>
+              <td>LRP o wartości 150 PV</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Mateusz</td>
+              <td>Kwi 2020<br>Lis 2024 (ponowna aktywacja)</td>
+              <td class="dash-cell">—</td>
+              <td>Zamówienie reaktywacyjne</td>
+              <td>LRP o wartości 125 PV</td>
+              <td>11</td>
+            </tr>
+            <tr>
+              <td>Natalia</td>
+              <td>Cze 2024</td>
+              <td>LRP o wartości 200 PV</td>
+              <td>LRP o wartości 250 PV</td>
+              <td>LRP o wartości 200 PV</td>
+              <td>6</td>
+            </tr>
+            <tr class="summary-row">
+              <td colspan="2">Łączny wzrost osobisty<br>(PGV)</td>
+              <td>825 PGV</td>
+              <td>800 PGV</td>
+              <td>875 PGV</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Zakładka 7: Premier, Silver, Gold -->
+    <div id="tab7" class="tab-content">
+      <div class="table-container-wide">
+        <table class="green-table-wide">
+          <thead>
+            <tr>
+              <th>Ranga</th>
+              <th>Pula Wzmocnienia</th>
+              <th>Pula Liderów</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Premier</strong></td>
+              <td><strong>1 udział</strong><br>Osobista rejestracja na każdy udział</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>Silver</strong></td>
+              <td><strong>1 udział</strong><br>Osobista rejestracja na każdy udział</td>
+              <td><strong>1 udział</strong><br><strong>+1 udział</strong> za każdy <strong>nowy Elite</strong><br>osobiście zarejestrowany</td>
+            </tr>
+            <tr>
+              <td><strong>Gold</strong></td>
+              <td><strong>2 udziały</strong><br>Osobista rejestracja na każdy udział</td>
+              <td><strong>5 udziałów</strong><br><strong>+1 udział</strong> za każdy <strong>nowy Elite</strong><br>osobiście zarejestrowany</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Zakładka 8: Platinum i wyższe -->
+    <div id="tab8" class="tab-content">
+      <div class="table-container-wide">
+        <table class="green-table-wide">
+          <thead>
+            <tr>
+              <th>Ranga</th>
+              <th>Pula Liderów</th>
+              <th>Pula Wydajności</th>
+              <th>Pula Diamond/Blue/Presidential</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Platinum</strong></td>
+              <td><strong>10 udziałów</strong><br><strong>+1 udział</strong> za każdy <strong>nowy Elite</strong><br>osobiście zarejestrowany</td>
+              <td><strong>3 udziały</strong><br>lub 1 udział jeżeli TGV &lt; 4000 PV<br><strong>+2 udziały</strong> za każdy <strong>nowy Premier</strong><br>osobiście zarejestrowany</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>Diamond</strong></td>
+              <td>—</td>
+              <td><strong>4 udziały</strong><br>lub 3 udziały jeżeli TGV &lt; 6000 PV<br><strong>+2 udziały</strong> za każdy <strong>nowy Premier</strong><br>osobiście zarejestrowany</td>
+              <td><strong>4 udziały</strong><br>lub 2 udziały jeżeli TGV &lt; 6000 PV<br><strong>+1 udział</strong> za każdy <strong>nowy Premier</strong><br>osobiście zarejestrowany</td>
+            </tr>
+            <tr>
+              <td><strong>Blue Diamond</strong></td>
+              <td>—</td>
+              <td><strong>6 udziałów</strong><br>lub 3 udziały jeżeli TGV &lt; 12000 PV<br><strong>+2 udziały</strong> za każdy <strong>nowy Premier</strong><br>osobiście zarejestrowany</td>
+              <td><strong>4 udziały</strong><br>lub 2 udziały jeżeli TGV &lt; 12000 PV<br><strong>+1 udział</strong> za każdy <strong>nowy Premier</strong><br>osobiście zarejestrowany</td>
+            </tr>
+            <tr>
+              <td><strong>Presidential Diamond</strong></td>
+              <td>—</td>
+              <td><strong>8 udziałów</strong><br>lub 3 udziały jeżeli TGV &lt; 18000 PV<br><strong>+2 udziały</strong> za każdy <strong>nowy Premier</strong><br>osobiście zarejestrowany</td>
+              <td><strong>4 udziały</strong><br>lub 2 udziały jeżeli TGV &lt; 18000 PV<br><strong>+1 udział</strong> za każdy <strong>nowy Silver</strong><br>osobiście zarejestrowany</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      function openTab(evt, tabName) {
+        // Ukryj wszystkie zakładki
+        var tabContents = document.getElementsByClassName("tab-content");
+        for (var i = 0; i < tabContents.length; i++) {
+          tabContents[i].classList.remove("active");
+        }
+
+        // Usuń klasę "active" ze wszystkich przycisków
+        var tabButtons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < tabButtons.length; i++) {
+          tabButtons[i].classList.remove("active");
+        }
+
+        // Pokaż wybraną zakładkę i zaznacz przycisk
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+      }
+    </script>
 
 </body>
 </html>
